@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html><head>
+<html>
+<head>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
     <style>
         .link {
@@ -273,13 +274,92 @@
         }]
     }
 </script>
-</head><body>
+
+
+<div style="
+    display: inline-block;
+    top: 20;
+    bottom: 100;
+    left: 50;
+    right: 500;
+    width: 1500px;
+    height: 40px;
+    font-size: 300%; 
+    text-align:center;">
+    Plan your future at UCSC by building your major.</div>
+
+<br>
+<br>
+
+<div style="
+    display: inline-block;
+    top: 20;
+    bottom: 100;
+    left: 50;
+    right: 500;
+    width: 400px;
+    height: 40px;
+    text-align: justify;"></div>
+
+<div style="
+    display: inline-block;
+    top: 20;
+    bottom: 100;
+    left: 50;
+    right: 500;
+    width: 700px;
+    height: 40px;
+    text-align: justify;">The class scheduling system is confusing. We simplify everything by presenting a buffet of classes, and YOU choose the most delicious meal possible from our menu of classes:</div>
+
+<div style="
+    display: inline-block;
+    top: 20;
+    bottom: 100;
+    left: 50;
+    right: 500;
+    width: 400px;
+    height: 40px;
+    text-align: justify;"></div>
+
+<br>
+<br>
+
+<div style="
+font-size: 300%; 
+width:500px; 
+text-align:center; 
+float:left; 
+display:inline;">
+Menu</div>
+
+<div style="
+font-size: 300%; 
+width:500px; 
+text-align:center; 
+float:left; 
+display:inline;">
+Dinner Plate</div>
+
+<div style="
+font-size: 300%; 
+width:500px; 
+text-align:center; 
+float:left; 
+display:inline;">
+Buffet</div>
+
+</head>
+
+<body>
     <script src="https://d3js.org/d3.v3.min.js"></script>
 <script>
     
 //Size of the SVG
-var width = 1000,
-    height = 1000;
+var width = 1500,
+    height = 800;
+
+//Translates all edges, nodes, and text right by 500
+var align_right = 500;
 
 //Set up the colour scale
 var color = d3.scale.category10();
@@ -291,6 +371,33 @@ var svg = d3.select("body")
             .append("svg")
             .attr("width", width)
             .attr("height", height);
+
+var area1 = svg.append("rect")
+               .attr("x", 0)
+               .attr("y", 0)
+               .attr("height", 800)
+               .attr("width", 500)
+               .style("stroke", "grey")
+               .style("fill", "none")
+               .style("stroke-width", 2);
+
+var area2 = svg.append("rect")
+               .attr("x", 500)
+               .attr("y", 0)
+               .attr("height", 800)
+               .attr("width", 500)
+               .style("stroke", "grey")
+               .style("fill", "none")
+               .style("stroke-width", 2);
+
+var area3 = svg.append("rect")
+               .attr("x", 1000)
+               .attr("y", 0)
+               .attr("height", 800)
+               .attr("width", 500)
+               .style("stroke", "grey")
+               .style("fill", "none")
+               .style("stroke-width", 2);
 
 //Read the data from the mis element 
 var mis = document.getElementById('classes').innerHTML;
@@ -314,12 +421,13 @@ var link = svg.selectAll(".link")
     .attr("class", "link")
     .style("marker-end",  "url(#suit)");
 
+/* ARROW HEADS COMMENTED OUT FOR NOW
 svg.append("defs")
    .selectAll("marker")
    .data(["suit", "licensing", "resolved"])
    .enter()
    .append("marker")
-   .attr("id", function(d) { return d; })
+   .attr("id", function(d) { return d + align_right; })
    .attr("viewBox", "8 -5 1 10")
    .attr("refX", 25)
    .attr("refY", 0)
@@ -329,12 +437,13 @@ svg.append("defs")
    .append("path")
    .attr("d", "M-10,-5 L5,0 L-10,5 L0,0 L-10,-5")
    .style("stroke", "#4679BD")
-   .style("opacity", "0.6");
+   .style("opacity", "0.6"); */
 
 //Do the same with the circles for the nodes
 var node = svg.selectAll(".node")
     .data(graph.nodes)
-    .enter().append("g")
+    .enter()
+    .append("g")
     .attr("class", "node")
     .call(force.drag);
 
@@ -344,38 +453,39 @@ node.append("circle")
     return color(d.group);
 })
 
-node.append("text")
+var node_text = node.append("text")
     .attr("text-anchor", "middle")
     .attr("font-weight", "bold")
+    .attr("class", "best")
+    .attr("id", "best")
     .attr("fill", "black")
-    .attr("dx", 0)
+    .attr("dx", align_right)
     .attr("dy", ".35em")
-    .text(function(d) { return d.name });
+    .text(function(d) {return d.name});
 //End changed
 
 //Now we are giving the SVGs co-ordinates - the force layout is generating the co-ordinates which this code is using to update the attributes of the SVG elements
 force.on("tick", function () {
     link.attr("x1", function (d) {
-        return d.source.x;
+        return d.source.x + align_right;
     })
         .attr("y1", function (d) {
         return d.source.y;
     })
         .attr("x2", function (d) {
-        return d.target.x;
+        return d.target.x + align_right;
     })
         .attr("y2", function (d) {
         return d.target.y;
     });
 
-    //Changed
-    
     d3.selectAll("circle")
-      .attr("cx", function (d) {return d.x;})
-      .attr("cy", function (d) {return d.y;});
+      .attr("cx", function (d) {return d.x + align_right;})
+      .attr("cy", function (d) {return d.y = Math.max(30, Math.min(height - 30, d.y));});
 
-    d3.selectAll("text").attr("x", function (d) {return d.x;})
+    d3.selectAll("text").attr("x", function(d){return d.x;})
         .attr("y", function (d) {return d.y;});
 });
 </script>
-</body></html>
+</body>
+</html>
