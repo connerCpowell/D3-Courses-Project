@@ -1,491 +1,228 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8"><meta charset="utf-8">
-    <style>
-        .link {
-  stroke: #ccc;
-}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="robots" content="noindex">
+        <title>Build Your Major at UCSC: Computer Science B.S. (CMPS 165 Fall 2016)</title>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+        <link href="src/css/lib/bootstrap.min.css" rel="stylesheet">
+        <link href="src/css/lib/d3.tip.css" rel="stylesheet">
+        <link href="src/css/main.css" rel="stylesheet">
+    </head>
 
-.node text {
-  pointer-events: none;
-  font: 10px sans-serif;
-}
-    </style>
-    <script type="application/json" id="classes">
-    {
-        "nodes": [{
-            "name": "CMPS 12A/L",
-            "description": "(Accelerated) Introduction to Programming: Java",
-            "Order": 0,
-            "group": 1
-        }, {
-            "name": "CMPS 5J",
-            "description": "Introduction to Programming I: Java",
-            "Order": 1,
-            "group": 1
-        }, {
-            "name": "CMPS 11",
-            "description": "Introduction to Programming II: Java",
-            "Order": 2,
-            "group": 1
-        }, {
-            "name": "CMPE 13/L",
-            "description": "Computer Systems and C Programming",
-            "Order": 3,
-            "group": 1
-        }, {
-            "name": "CMPS 12B/M",
-            "description": "Data Structures",
-            "Order": 4,
-            "group": 1
-        }, {
-            "name": "CMPS 13H/L",
-            "description": "(Honors) Data Structures",
-            "Order": 5,
-            "group": 1
-        }, {
-            "name": "MATH 19A",
-            "description": "Calculus I",
-            "Order": 6,
-            "group": 2
-        }, {
-            "name": "MATH 19B",
-            "description": "Calculus II",
-            "Order": 7,
-            "group": 2
-        }, {
-            "name": "MATH 23A",
-            "description": "Calculus III (Multivariable)",
-            "Order": 8,
-            "group": 2
-        }, {
-            "name": "CMPE 16",
-            "description": "Discrete Math",
-            "Order": 9,
-            "group": 2
-        }, {
-            "name": "MATH 21",
-            "description": "Linear Algebra",
-            "Order": 10,
-            "group": 2
-        }, {
-            "name": "CMPE 12/L",
-            "description": "Computer Systems & Assembly Language",
-            "Order": 11,
-            "group": 1
-        }, {
-            "name": "CMPE 110",
-            "description": "Computer Architecture",
-            "Order": 12,
-            "group": 1
-        }, {
-            "name": "CMPS 104A",
-            "description": "Compiler Design I",
-            "Order": 13,
-            "group": 1
-        }, {
-            "name": "CMPS 111",
-            "description": "Operating Systems",
-            "Order": 14,
-            "group": 1
-        }, {
-            "name": "CMPS 102",
-            "description": "Analysis of Algorithms",
-            "Order": 15,
-            "group": 1
-        }, {
-            "name": "CMPS 112",
-            "description": "Comparative Program Languages",
-            "Order": 16,
-            "group": 1
-        }, {
-            "name": "CMPS 101",
-            "description": "Abstract Data Types",
-            "Order": 17,
-            "group": 1
-        }, {
-            "name": "CMPS 130",
-            "description": "Computational Models",
-            "Order": 18,
-            "group": 1
-        }, {
-            "name": "PHYS 5A/L",
-            "description": "Phyics I: Mechanics",
-            "Order": 19,
-            "group": 3
-        }, {
-            "name": "PHYS 5B/M",
-            "description": "Phyics II: Waves & Optics",
-            "Order": 20,
-            "group": 3
-        }, {
-            "name": "PHYS 5C/M",
-            "description": "Phyics III: Electricity and Magnetism",
-            "Order": 21,
-            "group": 3
-        }, {
-            "name": "CHEM 1A",
-            "description": "General Chemistry I",
-            "Order": 22,
-            "group": 4
-        }, {
-            "name": "CHEM 1B/M",
-            "description": "General Chemistry II",
-            "Order": 23,
-            "group": 4
-        }, {
-            "name": "CHEM 1C/M",
-            "description": "General Chemistry III",
-            "Order": 24,
-            "group": 4
-        }, {
-            "name": "AMS 131",
-            "description": "Probability and Statistics",
-            "Order": 25,
-            "group": 2
-        }, {
-            "name": "CAPSTONE",
-            "Order": 26,
-            "description": "",
-            "group": 5
-        }, {
-            "name": "THESIS",
-            "Order": 27,
-            "description": "",
-            "group": 6
-        }, {
-            "name": "ELECTIVE",
-            "Order": 28,
-            "description": "",
-            "group": 7
-        }, {
-            "name": "ELECTIVE",
-            "Order": 29,
-            "description": "",
-            "group": 7
-        }, {
-            "name": "ELECTIVE",
-            "Order": 30,
-            "description": "",
-            "group": 7
-        }, {
-            "name": "ELECTIVE",
-            "Order": 31,
-            "description": "",
-            "group": 7
-        }],
-            "links": [{
-            "source": 1,
-                "target": 2,
-                "value": 100
-        }, {
-            "source": 0,
-                "target": 4,
-                "value": 100
-        }, {
-            "source": 2,
-                "target": 4,
-                "value": 100
-        }, {
-            "source": 3,
-                "target": 4,
-                "value": 100
-        }, {
-            "source": 0,
-                "target": 5,
-                "value": 100
-        }, {
-            "source": 2,
-                "target": 5,
-                "value": 100
-        }, {
-            "source": 3,
-                "target": 5,
-                "value": 100
-        }, {
-            "source": 6,
-                "target": 7,
-                "value": 100
-        }, {
-            "source": 7,
-                "target": 8,
-                "value": 100
-        }, {
-            "source": 8,
-                "target": 17,
-                "value": 100
-        }, {
-            "source": 9,
-                "target": 17,
-                "value": 100
-        }, {
-            "source": 10,
-                "target": 17,
-                "value": 100
-        }, {
-            "source": 11,
-                "target": 12,
-                "value": 100
-        }, {
-            "source": 11,
-                "target": 13,
-                "value": 100
-        }, {
-            "source": 12,
-                "target": 14,
-                "value": 100
-        }, {
-            "source": 17,
-                "target": 13,
-                "value": 100
-        }, {
-            "source": 17,
-                "target": 14,
-                "value": 100
-        }, {
-            "source": 17,
-                "target": 15,
-                "value": 100
-        }, {
-            "source": 17,
-                "target": 16,
-                "value": 100
-        }, {
-            "source": 17,
-                "target": 18,
-                "value": 100
-        }, {
-            "source": 19,
-                "target": 20,
-                "value": 100
-        }, {
-            "source": 20,
-                "target": 21,
-                "value": 100
-        }, {
-            "source": 22,
-                "target": 23,
-                "value": 100
-        }, {
-            "source": 23,
-                "target": 24,
-                "value": 100
-        }]
-    }
-</script>
+    <body>
+        <div id="content">
+            <h1>Plan your Future at UCSC and Build Your Major!<br><small>Computer Science Major, B.S.</small></h1>
 
+            <p class="well lead">
+                The class scheduling system is confusing.  We simplify everything by presenting a buffet of classes, and YOU choose the most delicious meal possible from our menu of classes.  Start by choosing one programming introduction, a science requisite, and a statistics class.
+            </p>
 
-<div style="
-    display: inline-block;
-    top: 20;
-    bottom: 100;
-    left: 50;
-    right: 500;
-    width: 1500px;
-    height: 40px;
-    font-size: 300%; 
-    text-align:center;">
-    Plan your future at UCSC by building your major.</div>
+            <div class="clearfix">
+                <div id="menu"></div>
 
-<br>
-<br>
+                <div id="plate">
+                    <button class="btn btn-lg btn-link" id="clear_plate" type="button">Clear Plate</button>
+                </div>
+            </div>
 
-<div style="
-    display: inline-block;
-    top: 20;
-    bottom: 100;
-    left: 50;
-    right: 500;
-    width: 400px;
-    height: 40px;
-    text-align: justify;"></div>
+            <div id="form">
+                <form class="row">
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Lives</span>
+                            <input class="form-control input-lg" id="age" min="1" max="150" name="age" step="1" type="number" value="25">
+                        </div>
+                    </div>
 
-<div style="
-    display: inline-block;
-    top: 20;
-    bottom: 100;
-    left: 50;
-    right: 500;
-    width: 700px;
-    height: 40px;
-    text-align: justify;">The class scheduling system is confusing. We simplify everything by presenting a buffet of classes, and YOU choose the most delicious meal possible from our menu of classes:</div>
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Units/Quarter?</span>
+                            <input class="form-control input-lg" id="weight" min="1" max="1000" name="weight" step="1" type="number" value="15">
+                        </div>
+                    </div>
 
-<div style="
-    display: inline-block;
-    top: 20;
-    bottom: 100;
-    left: 50;
-    right: 500;
-    width: 400px;
-    height: 40px;
-    text-align: justify;"></div>
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                        <span class="input-group-addon">Units/Summer?</span>
+                            <input class="form-control input-lg" id="height" min="0" max="11" name="height" step="1" type="number" value="5">
+                        </div>
+                    </div>
 
-<br>
-<br>
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                            <span class="input-group-addon">Summer?</span>
+                            <div class="form-control input-lg">
+                                <select id="sex" name="sex">
+                                    <option value=""></option>
+                                    <option value="m" selected>Yeah</option>
+                                    <option value="f">Nah</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
 
-<div style="
-font-size: 300%; 
-width:500px; 
-text-align:center; 
-float:left; 
-display:inline;">
-Menu</div>
+                    <div class="col-xs-4">
+                        <div class="input-group">
+                            <span class="input-group-addon">Are You Lazy?</span>
+                            <div class="form-control input-lg">
+                                <select id="activity_level" name="activity_level">
+                                    <option value=""></option>
+                                    <option value="sedentary" selected>Sedentary</option>
+                                    <option value="lightly_active">Lightly Active</option>
+                                    <option value="moderately_active">Moderately Active</option>
+                                    <option value="very_active">Very Active</option>
+                                    <option value="extra_active">Extra Active</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
 
-<div style="
-font-size: 300%; 
-width:500px; 
-text-align:center; 
-float:left; 
-display:inline;">
-Dinner Plate</div>
+            <div id="nutrients">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>Fall</th>
+                            <th>Winter</th>
+                            <th>Spring</th>
+                            <th>Summer</th>
+                        </tr>
+                    </thead>
 
-<div style="
-font-size: 300%; 
-width:500px; 
-text-align:center; 
-float:left; 
-display:inline;">
-Buffet</div>
+                    <tbody>
+                        <tr>
+                            <td><a href="http://health.gov/dietaryguidelines/2010/" target="_blank">2016 (Year 1)</a></td>
+                            <td id="your_plate_calories">0.00</td>
+                            <td id="your_plate_cholesterol">0.00</td>
+                            <td id="your_plate_sodium">0.00</td>
+                            <td id="your_plate_fat">0.00</td>
+                        </tr>
 
-</head>
+                        <tr>
+                            <td><a href="http://health.gov/dietaryguidelines/2010/" target="_blank">2017 (Year 2)</a></td>
+                            <td id="recommendation_calories">0.00</td>
+                            <td id="recommendation_cholesterol">0.00</td>
+                            <td id="recommendation_sodium">0.00</td>
+                            <td id="recommendation_fat">0.00</td>
+                        </tr>
 
-<body>
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-<script>
-    
-//Size of the SVG
-var width = 1500,
-    height = 800;
+                        <tr>
+                            <td><a href="http://health.gov/dietaryguidelines/2010/" target="_blank">2018 (Year 3)</a></td>
+                            <td id="recommendation_calories">0.00</td>
+                            <td id="recommendation_cholesterol">0.00</td>
+                            <td id="recommendation_sodium">0.00</td>
+                            <td id="recommendation_fat">0.00</td>
+                        </tr>
 
-//Translates all edges, nodes, and text right by 500
-var align_right = 500;
+                        <tr>
+                            <td><a href="http://health.gov/dietaryguidelines/2010/" target="_blank">2019 (Year 4)</a></td>
+                            <td id="recommendation_calories">0.00</td>
+                            <td id="recommendation_cholesterol">0.00</td>
+                            <td id="recommendation_sodium">0.00</td>
+                            <td id="recommendation_fat">0.00</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
 
-//Set up the colour scale
-var color = d3.scale.category10();
+            <div id="about">
+                <div class="row">
+                    <div class="col-xs-4">
+                        <h2>CMPS 165 Spring 2016<br><small>Data Programming for Visualization</small></h2>
 
-//Set up the force layout
+                        <ul>
+                            <li>Lon Blauvelt</li>
+                            <li>Conner Powell</li>
+                            <li>Vic Yankoff</li>
+                            <li>Suresh Lodha</li>
+                        </ul>
+                    </div>
 
-//Append a SVG to the body of the html page. Assign this SVG as an object to svg
-var svg = d3.select("body")
-            .append("svg")
-            .attr("width", width)
-            .attr("height", height);
+                    <div class="col-xs-8">
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-toggle="collapse" data-target="#collapse-files">
+                                    <h4 class="panel-title">Files</h4>
+                                </div>
 
-var area1 = svg.append("rect")
-               .attr("x", 0)
-               .attr("y", 0)
-               .attr("height", 800)
-               .attr("width", 500)
-               .style("stroke", "grey")
-               .style("fill", "none")
-               .style("stroke-width", 2);
+                                <div class="panel-collapse collapse" id="collapse-files">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">index.html</li>
 
-var area2 = svg.append("rect")
-               .attr("x", 500)
-               .attr("y", 0)
-               .attr("height", 800)
-               .attr("width", 500)
-               .style("stroke", "grey")
-               .style("fill", "none")
-               .style("stroke-width", 2);
+                                        <li class="list-group-item">src/css/lib/bootstrap.min.css</li>
+                                        <li class="list-group-item">src/css/lib/d3.tip.css</li>
+                                        <li class="list-group-item">src/css/main.css</li>
 
-var area3 = svg.append("rect")
-               .attr("x", 1000)
-               .attr("y", 0)
-               .attr("height", 800)
-               .attr("width", 500)
-               .style("stroke", "grey")
-               .style("fill", "none")
-               .style("stroke-width", 2);
+                                        <li class="list-group-item">src/img/*/*.png</li>
+                                        <li class="list-group-item">src/img/plate.svg</li>
 
-//Read the data from the mis element 
-var mis = document.getElementById('classes').innerHTML;
-var graph = JSON.parse(mis);
+                                        <li class="list-group-item">src/js/lib/bootstrap.min.js</li>
+                                        <li class="list-group-item">src/js/lib/d3.tip.js</li>
+                                        <li class="list-group-item">src/js/lib/d3.v3.min.js</li>
+                                        <li class="list-group-item">src/js/lib/jquery.min.js</li>
+                                        <li class="list-group-item">src/js/main.js</li>
 
-//Creates the graph data structure out of the json data
-var force = d3.layout
-              .force()
-              .charge(-500)
-              .linkDistance(100)
-              .size([width-150, height-150])
-              .nodes(graph.nodes)
-              .links(graph.links)
-              .start();
+                                        <li class="list-group-item">src/json/foods.json</li>
+                                    </ul>
+                                </div>
+                            </div>
 
-//Create all the line svgs but without locations yet
-var link = svg.selectAll(".link")
-    .data(graph.links)
-    .enter()
-    .append("line")
-    .attr("class", "link")
-    .style("marker-end",  "url(#suit)");
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-toggle="collapse" data-target="#collapse-data-sources">
+                                    <h4 class="panel-title">Data Sources</h4>
+                                </div>
 
-/* ARROW HEADS COMMENTED OUT FOR NOW
-svg.append("defs")
-   .selectAll("marker")
-   .data(["suit", "licensing", "resolved"])
-   .enter()
-   .append("marker")
-   .attr("id", function(d) { return d + align_right; })
-   .attr("viewBox", "8 -5 1 10")
-   .attr("refX", 25)
-   .attr("refY", 0)
-   .attr("markerWidth", 40)
-   .attr("markerHeight", 20)
-   .attr("orient", "auto")
-   .append("path")
-   .attr("d", "M-10,-5 L5,0 L-10,5 L0,0 L-10,-5")
-   .style("stroke", "#4679BD")
-   .style("opacity", "0.6"); */
+                                <div class="panel-collapse collapse" id="collapse-data-sources">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="https://ndb.nal.usda.gov/ndb/foods" target="_blank">United States Department of Agriculture National Nutrient Database</a></li>
+                                        <li class="list-group-item"><a href="http://health.gov/dietaryguidelines/2010/" target="_blank">United States Department of Health and Human Services 2010 Dietary Guidelines for Americans</a></li>
+                                    </ul>
+                                </div>
+                            </div>
 
-//Do the same with the circles for the nodes
-var node = svg.selectAll(".node")
-    .data(graph.nodes)
-    .enter()
-    .append("g")
-    .attr("class", "node")
-    .call(force.drag);
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-toggle="collapse" data-target="#collapse-code-sources">
+                                    <h4 class="panel-title">Code Sources</h4>
+                                </div>
 
-node.append("circle")
-    .attr("r", 30)
-    .style("fill", function (d) {
-    return color(d.group);
-})
+                                <div class="panel-collapse collapse" id="collapse-code-sources">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="https://github.com/mbostock/d3/wiki/API-Reference" target="_blank">D3 API Reference</a></li>
+                                        <li class="list-group-item"><a href="http://chimera.labs.oreilly.com/books/1230000000345/index.html" target="_blank">Interactive Data Visualization for the Web</a></li>
+                                        <li class="list-group-item"><a href="https://getbootstrap.com/" target="_blank">Bootstrap: The world&apos;s most popular mobile-first and responsive front-end framework</a></li>
+                                        <li class="list-group-item"><a href="http://labratrevenge.com/d3-tip/" target="_blank">d3.tip: Tooltips for d3.js visualizations</a></li>
+                                        <li class="list-group-item"><a href="https://bl.ocks.org/mbostock/1095795" target="_blank">Modifying a Force Layout</a></li>
+                                        <li class="list-group-item"><a href="https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation" target="_blank">Harris-Benedict equation</a></li>
+                                        <li class="list-group-item"><a href="http://www.freepik.com/" target="_blank">Icons designed by Freepik</a></li>
+                                    </ul>
+                                </div>
+                            </div>
 
-var node_text = node.append("text")
-    .attr("text-anchor", "middle")
-    .attr("font-weight", "bold")
-    .attr("class", "best")
-    .attr("id", "best")
-    .attr("fill", "black")
-    .attr("dx", align_right)
-    .attr("dy", ".35em")
-    .text(function(d) {return d.name});
-//End changed
+                            <div class="panel panel-default">
+                                <div class="panel-heading" data-toggle="collapse" data-target="#collapse-visualization-sources">
+                                    <h4 class="panel-title">Visualization Sources</h4>
+                                </div>
 
-//Now we are giving the SVGs co-ordinates - the force layout is generating the co-ordinates which this code is using to update the attributes of the SVG elements
-force.on("tick", function () {
-    link.attr("x1", function (d) {
-        return d.source.x + align_right;
-    })
-        .attr("y1", function (d) {
-        return d.source.y;
-    })
-        .attr("x2", function (d) {
-        return d.target.x + align_right;
-    })
-        .attr("y2", function (d) {
-        return d.target.y;
-    });
+                                <div class="panel-collapse collapse" id="collapse-visualization-sources">
+                                    <ul class="list-group">
+                                        <li class="list-group-item"><a href="https://github.com/ryanbrounley/d3.js_projects/tree/master/foods" target="_blank">How Many Calories are in your Breakfast?</a></li>
+                                        <li class="list-group-item"><a href="http://sureshlodha.github.io/FruitsAndVegetables/" target="_blank">Inside Fruits and Vegetables</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    d3.selectAll("circle")
-      .attr("cx", function (d) {return d.x + align_right;})
-      .attr("cy", function (d) {return d.y = Math.max(30, Math.min(height - 30, d.y));});
-
-    d3.selectAll("text").attr("x", function(d){return d.x;})
-        .attr("y", function (d) {return d.y;});
-});
-</script>
-</body>
+        <script src="src/js/lib/d3.v3.min.js"></script>
+        <script src="src/js/lib/d3.tip.js"></script>
+        <script src="src/js/lib/jquery.min.js"></script>
+        <script src="src/js/lib/bootstrap.min.js"></script>
+        <script src="src/js/main.js"></script>
+    </body>
 </html>
