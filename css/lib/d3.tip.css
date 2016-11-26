@@ -1,0 +1,64 @@
+/* d3.tip: Tooltips for d3.js visualizations by Caged <http://labratrevenge.com/d3-tip/> */
+.d3-tip {
+    min-width: 215px;
+    line-height: 18px;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.55);
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 400;
+    pointer-events: none;
+}
+
+.d3-tip:after {
+    display: inline;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    line-height: 1;
+    text-align: center;
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.55);
+    pointer-events: none;
+}
+
+.d3-tip.n:after {
+    content: "\25BC";
+    top: 100%;
+    margin: -2px 0 0 0;
+}
+
+.d3-tip.s:after {
+    content: "\25B2";
+    top: -8px;
+    margin: 0 0 1px 0;
+}
+
+.d3-tip > strong {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.d3-tip > strong > em {
+    font-size: 18px;
+    font-style: normal;
+}
+
+.d3-tip > .clearfix {
+    text-align: left;
+}
+
+.d3-tip > .clearfix > strong {
+    float: left;
+}
+
+.d3-tip > .clearfix > em {
+    float: right;
+    font-style: normal;
+}
